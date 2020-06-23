@@ -8,5 +8,4 @@
                 :components
                 ((:test-file "erlport"))))
   :description "Test system for cl-erlport"
-
   :perform (test-op (op c) (symbol-call :prove-asdf :run-test-system c)))

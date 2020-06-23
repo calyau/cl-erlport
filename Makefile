@@ -1,5 +1,5 @@
 ERLPORT_DIR=erlport
-ERL_VERSION=18.3
+ERL_VERSION?=20.3
 ERL_HOME=/opt/erlang/$(ERL_VERSION)
 
 $(ERLPORT_DIR):
@@ -18,6 +18,14 @@ erlport-infra: erlport-release
 
 clean-erlport:
 	@rm -rf $(ERLPORT_DIR)
+
+repl:
+	@rlwrap \
+	  --prompt-colour=YELLOW \
+	  --histsize=100000 \
+	  -t "Steel Bank Common Lisp" \
+	  --remember \
+	  sbcl
 
 test:
 	@sbcl \
